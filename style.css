@@ -1,0 +1,265 @@
+/*CSS Reset from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /*Paddings and margins are considered in the max-size*/
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    /*For browsers that support this unity*/
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    /*line-height: 1.5; Default = 1.2*/
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Natural flow and rhythm in articles by default 
+article>*+* {
+    margin-top: 1em;
+}*/
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove the arrows of the number type inputs for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Remove the arrows of the number type inputs for Firefox */
+input[type=number] {
+    /* -moz-appearance: textfield; */
+    appearance: textfield;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+/* Custom styles */
+:root {
+    --color-blue-buttons: #4bcfff;
+    --color-hover-blue-buttons: #9ae2fc;
+    --color-focus-blue-buttons: 0 0 0 6px rgba(75, 207, 255, .75);
+    --color-grey-titles: #bdbec0;
+    --color-transparent-background-inputs: rgba(255, 255, 255, 0.3);
+    --color-active-background-clic-zone: rgba(255, 255, 255, 0.5);
+    --color-red-background-notification: #ff866e;
+
+    --font-titles: 0.875rem;
+    --font-plus-minus-buttons: 3.25rem;
+    --font-counter: 13.5rem;
+    --font-reset-button: 2.25rem;
+    --font-clic-zone: 2rem;
+}
+
+/* General styles */
+
+body {
+    font-family: 'Roboto', serif;
+    background-image: linear-gradient(rgba(0, 0, 0, .6),rgba(0, 0, 0, .6)), url('./assets/pictures/fond.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 30px;
+    gap: 15px;
+}
+
+h1 {
+    display: none;
+}
+
+h2 {
+    color: var(--color-grey-titles);
+    font-size: var(--font-titles);
+    text-transform: uppercase;
+}
+
+input {
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-transparent-background-inputs);
+    font-size: var(--font-plus-minus-buttons);
+    text-align: center;
+    color: white;
+}
+
+.plus-minus-control input {
+    border-radius: 0px 0px 20px 20px;
+    min-height: 100px;
+}
+.plus-minus-control button {
+    border-radius: 20px 20px 0px 0px;
+    min-height: 100px;
+}
+
+button {
+    background-color: var(--color-blue-buttons);
+    border: none;
+    border-radius: 20px;
+    font-size: var(--font-plus-minus-buttons);
+    min-width: 100px;    
+    color: white;
+    cursor: pointer;
+}
+button:hover,
+#reset:hover {
+    background-color: var(--color-hover-blue-buttons);
+}
+
+#notification-text {
+    display: inline-block;
+    background-color: var(--color-red-background-notification);
+    font-size: var(--font-titles);
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    margin-top: 10px;
+}
+
+.notification {
+    position:fixed;
+    top: -50%;
+    right: 0;
+    left: 0;
+    transition: top 300ms;
+    text-align: center;
+}
+
+.show-notification {
+    top: 0;
+}
+
+.limite-atteinte {
+    color: var(--color-red-background-notification);
+    animation: limite-atteinte linear .2s 3;
+}
+
+@keyframes limite-atteinte {
+    from {
+        left: 0;
+    }
+
+    33% {
+        left: .05em;
+    }
+
+    66% {
+        left: -.05em;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+.display-rectangle {
+    width: 120px;
+    height: 80px;
+}
+
+.plus-minus-control {
+    display: flex;
+    flex-direction: column;
+}
+
+#zone-centrale {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    color: white;
+}
+
+#counter {
+    font-size: var(--font-counter);    
+    min-width: 250px;
+    /* Juste pour l'animation de limite atteinte */
+    position: relative;
+}
+
+#resetButton {
+    background-color: var(--color-blue-buttons);
+    font-size: var(--font-reset-button);
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    margin: 20px;
+}
+
+#zone-clic {
+    width: 90%;
+    min-height: 240px;
+    background-color: var(--color-transparent-background-inputs);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 7%;
+    color: white;
+    font-size: var(--font-clic-zone);    
+}
+#zone-clic:active {
+    background-color: var(--color-active-background-clic-zone);
+}
+

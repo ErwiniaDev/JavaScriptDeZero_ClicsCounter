@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Compteur de clics</title>
+</head>
+
+<body>
+    <h1>Pas de titre h1 sur cette page</h1>
+    
+    <div id="notification" class="notification">
+        <p id="notification-text">Texte de notification</p>
+    </div>
+    
+    <h2>Limite haute</h2>
+    <input type="number" id="high-limit" class="display-rectangle" value="3"></input>
+    
+    <div id="zone-centrale">
+        <div class="plus-minus-control">
+            <button id="minusButton">-</button>
+            <input type="number" id="dec-value"  value="1" min="0"></input>
+        </div>
+        <p id="counter" class="counter">0</p>
+        <div class="plus-minus-control">
+            <button id="plusButton">+</button>
+            <input type="number" id="inc-value" value="1" min="0"></input>
+        </div>
+    </div>
+    
+    <h2>Limite basse</h2>
+    <input type="number" id="low-limit" class="display-rectangle" value="-3"></input>
+    
+    <button id="resetButton">Reset</button>
+    
+    <h2>Zone de clic</h2>
+    <div id="zone-clic" class="display-rectangle">
+        <p>Clic gauche : incrémentation<br>
+        Clic droit : décrémentation</p>
+    </div>
+
+    <script src="projet.js"></script>
+</body>
+
+</html>
